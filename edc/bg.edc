@@ -1,0 +1,2407 @@
+/* DEFINE VALOR DE TRANSICION */
+#define TIME_TRANS 0.3
+#define TIME_MIN  10
+#define TIME_RAND 30
+
+
+/* CARGA FUENTES */
+fonts {
+  font: "pushkin.ttf"        "pushkin";
+}
+
+
+/* CARGA IMAGENES */
+images {
+   image: "background.png"     COMP;
+   image: "star.png"	       COMP;
+   image: "elive-logo-off.png" COMP;   
+
+   image: "cielo.png"          LOSSY 60;
+   image: "shadow-on.png"      LOSSY 60;
+   image: "Logotipo.png"       LOSSY 60;
+   
+   image: "reflect_off-00.png"  LOSSY 60;
+   image: "reflect_off-01.png"  LOSSY 60;
+   image: "reflect_off-02.png"  LOSSY 60;
+   image: "reflect_off-03.png"  LOSSY 60;
+   image: "reflect_off-04.png"  LOSSY 60;
+   image: "reflect_off-05.png"  LOSSY 60;
+   image: "reflect_off-06.png"  LOSSY 60;
+   image: "reflect_off-07.png"  LOSSY 60;
+   image: "reflect_off-08.png"  LOSSY 60;
+   image: "reflect_off-09.png"  LOSSY 60;
+   image: "reflect_off-10.png"  LOSSY 60;
+   image: "reflect_off-11.png"  LOSSY 60;
+   image: "reflect_off-12.png"  LOSSY 60;
+   image: "reflect_off-13.png"  LOSSY 60;
+   image: "reflect_off-14.png"  LOSSY 60;
+   image: "reflect_off-15.png"  LOSSY 60;
+
+}
+
+
+   group {
+      name: "e/desktop/background";
+      parts {
+	 part {
+	    name:          "background";
+	    mouse_events:  0;
+	    description {
+	       state:    "default" 0.0;
+	       rel1 {
+		  relative: 0.0  0.0;
+		  offset:   0    0;
+	       }
+	       rel2 {
+		  relative: 1.0  1.0;
+		  offset:   -1   -1;
+	       }
+	       image {
+		  normal: "background.png";
+	       }
+	    }
+	 }
+
+	 part {
+	    name:          "cielo";
+	    mouse_events:  0;
+            type: RECT;
+	    description {
+	       state:    "default" 0.0;
+               color: 00 00 00 255;
+
+	       rel1 {
+		  relative: 0.0  0.0;
+		  offset:   0    0;
+                  to: "background";
+
+	       }
+	       rel2 {
+		  relative: 1.0  0.5;
+		  offset:   0 26;
+                  to: "background";
+	       }
+
+	   }
+	 }
+
+
+
+	 part {
+	    name:          "imagen_cielo";
+	    mouse_events:  0;
+	    description {
+	       state:    "default" 0.0;
+               color: 255 255 255 80;
+
+	       rel1 {
+		  relative: 0.0  0.0;
+		  offset:   0    0;
+                  to: "cielo";
+	       }
+
+	       rel2 {
+		  relative: 1.0  1.0;
+		  offset:   0 0;
+                  to: "cielo";
+	       }
+
+	       image {
+		  normal: "cielo.png";
+               }
+	    }
+	 }
+
+
+
+
+	 part {
+	    name:          "logo";
+	    mouse_events:  0;
+	    description {
+	       state:    "default" 0.0;
+               aspect:   1.0 1.0;
+               color: 255 255 255 70;
+               align: 1.0 1.0;        
+               min: 600 409;
+               max: 865 589;
+
+               rel1 {       
+                     relative: 1.0  1.0;
+               }                    
+
+               rel2 {
+                     relative: 1.0  1.0;
+                     offset: 0 -2;      
+               }                    
+               image {
+                       normal: "Logotipo.png";
+                }                              
+             }  
+	 }
+
+
+       part {
+       	  name: "elive-shadow";
+	  description {
+	     state:	"default" 0.0;
+             aspect:      1.0 1.0;
+	     min: 80 80;
+	     max: 80 80;
+
+             rel1.relative: 0.5  0.5;
+             rel2.relative: 0.5  0.5;
+        
+
+             image { normal: "shadow-on.png"; }
+	     color: 0 0 0 0;
+	     }
+
+	  description {
+	     state:	"show" 0.0;
+	     inherit: 	"default" 0.0;
+             color: 203 174 67 55;
+	     }
+       }
+
+
+       part {
+       	  name: "elive-logo";
+	  description {
+	     state:	"default" 0.0;
+             aspect:      1.0 1.0;
+	     min: 80 80;
+	     max: 80 80;
+
+         rel1 {
+		relative:	1.0  1.0;
+		offset:		0 0;
+                to: "elive-shadow";
+		
+		}
+
+           rel2 {
+	        relative: 	0.0 0.0;
+		offset:		0 0;
+                to: "elive-shadow";
+		}
+	     image { normal, "elive-logo-off.png"; }
+	     color: 255 255 255 55;
+	     }
+	  description {
+	     state:	"show" 0.0;
+	     inherit: 	"default" 0.0;
+             color: 203 174 67 255;
+	     }
+       }
+
+
+
+
+       part {
+       	  name: "elive-logo-refl";
+          mouse_events: 0;
+          type: IMAGE;
+
+	  description {
+	     state:	"default" 0.0;
+             aspect:     1.0 1.0;
+	     min: 80 80;
+	     max: 80 80;
+
+	     rel1 {
+		relative:	0.5 0.6;
+		offset:		40   140;
+                to: "elive-logo";
+	     }
+
+             rel2 {
+		relative: 	0.0 0.0;
+		offset:		0 0;
+                to: "elive-logo";
+	     }
+
+	     image {
+                  normal: "reflect_off-00.png";
+             }
+
+	     color: 255 255 255 20;
+	     }
+	  description {
+	     state:	"default" 0.1;
+	     inherit: 	"default" 0.0;
+	     image { normal: "reflect_off-01.png";
+
+                      tween: "reflect_off-02.png";
+                      tween: "reflect_off-03.png";
+                      tween: "reflect_off-04.png";
+                      tween: "reflect_off-05.png";
+                      tween: "reflect_off-06.png";
+                      tween: "reflect_off-07.png";
+                      tween: "reflect_off-08.png";
+                      tween: "reflect_off-09.png";
+                      tween: "reflect_off-10.png";
+                      tween: "reflect_off-11.png";
+                      tween: "reflect_off-12.png";
+                      tween: "reflect_off-13.png";                      
+                      tween: "reflect_off-14.png";
+                      tween: "reflect_off-15.png";                      
+                    }
+             color: 203 174 67 25;
+	     }
+       }
+
+
+
+        part {
+           name: "text_1";
+           type: TEXT;   
+           effect: SOFT_SHADOW;
+
+           description {
+                state: "default" 0.0;
+                aspect: 1.0 1.0;
+                color: 255 255 255 0;
+                color3: 0 0 0 0;
+       
+                text {
+                  text: "Where Debian meets Enlightenment";
+                  font: "pushkin";
+                  size: 24;
+                  min: 1 0;
+                  align: 0.0  0.5;
+                 }
+
+                rel1{
+                  relative: 0.5  0.5;
+                  offset: 0 60;
+                 }
+
+                rel2 {
+                  relative: 0.5  0.5;
+                  offset: 0 60;
+                 }
+            } 
+      
+           description {
+                state: "lighted" 0.0;
+                color: 203 174 67 150;
+                color3: 0 0 0  30;
+       
+                text {
+                  text: "Where Debian meets Enlightenment";
+                  font: "pushkin";
+                  size: 24;
+                  min: 1 0;
+                  align: 0.0  0.5;
+                 }
+
+                rel1{
+                  relative: 0.5  0.5;
+                  offset: 0 60;
+                 }
+
+                rel2 {
+                  relative: 0.5  0.5;
+                  offset: 0 60;
+                 }
+            }
+        }
+
+
+	part {
+	   name: 		"star01";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.2 0.2;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.23 0.23;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.2 0.2;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.23 0.23;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star02";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.23 0.34;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.26 0.37;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.23 0.34;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.26 0.37;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star03";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.31 0.41;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.34 0.44;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.31 0.41;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.34 0.44;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star04";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.93 0.37;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.96 0.40;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0; 
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.93 0.37;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.96 0.40;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star05";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.36 0.13;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.39 0.16;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.36 0.13;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.39 0.16;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star06";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.13 0.82;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.16 0.85;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.13 0.82;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.16 0.85;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star07";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.33 0.36;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.36 0.39;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.33 0.36;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.36 0.39;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star08";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.27 0.25;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.30 0.28;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.27 0.25;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.30 0.28;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star09";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.79 0.22;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.82 0.25;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.79 0.22;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.82 0.25;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star10";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.55 0.09;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.58 0.12;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.55 0.09;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.58 0.12;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star11";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.96 0.83;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.99 0.86;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.96 0.83;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.99 0.86;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star12";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.62 0.16;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.65 0.19;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.62 0.16;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.65 0.19;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star13";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.87 0.87;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.90 0.90;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.87 0.87;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.90 0.90;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 125;
+	   }
+       }
+       
+       
+	part {
+	   name: 		"star14";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.74 0.61;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.77 0.64;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.74 0.61;
+			offset:		0   0;
+                        to: "cielo";			
+		} rel2 {
+			relative: 	0.77 0.64;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+       
+       
+	part {
+	   name: 		"star15";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.69 0.52;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.72 0.55;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.69 0.52;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.72 0.55;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+
+
+	part {
+	   name: 		"star16";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.85 0.04;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.88 0.07;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.85 0.04;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.88 0.07;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star17";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.50 0.70;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.53 0.73;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.50 0.70;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.53 0.73;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star18";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.10 0.10;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.13 0.13;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.10 0.10;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.13 0.13;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star19";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.60 0.45;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.63 0.48;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.60 0.45;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.63 0.48;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star20";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.77 0.73;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.80 0.76;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.77 0.73;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.80 0.76;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star21";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.725 0.67;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.755 0.70;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.725 0.67;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.755 0.70;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star22";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.822 0.708;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.852 0.738;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.822 0.708;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.852 0.738;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star23";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.30 0.70;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.33 0.73;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.30 0.70;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.33 0.73;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+
+	part {
+	   name: 		"star24";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.08 0.45;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.11 0.48;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.08 0.45;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.11 0.48;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star25";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.23 0.75;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.26 0.78;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.23 0.75;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.26 0.78;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star26";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.20 0.60;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.23 0.63;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.20 0.60;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.23 0.63;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star27";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.40 0.78;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.43 0.81;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.40 0.78;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.43 0.81;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star28";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.45 0.35;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.48 0.38;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.45 0.35;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.48 0.38;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star29";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.04 0.40;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.07 0.43;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.04 0.40;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.07 0.43;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star30";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.31 0.03;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.34 0.06;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.31 0.03;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.34 0.06;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+	part {
+	   name: 		"star31";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.40 0.55;
+			offset:		0   0;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.43 0.58;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.40 0.55;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.43 0.58;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+       }
+
+
+       part {
+	   name: 		"starflash1";
+	   mouse_events:	0;
+	   description {
+		state:		"default" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.0  0.25;
+			offset:		-30   -10;
+                        to: "cielo";
+		
+		} rel2 {
+			relative: 	0.03 0.28;
+			offset:		-25 -10;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 255;
+	   }
+	   description {
+		state:		"lighted" 0.0;
+		aspect:		1.0 1.0;
+		visible:	1;
+		rel1 {
+			relative:	0.9 0.11;
+			offset:		0   0;
+                        to: "cielo";
+		} rel2 {
+			relative: 	0.93 0.14;
+			offset:		-1 -1;
+                        to: "cielo";
+		}
+		image {
+			normal:		"star.png";
+		}
+		color: 		255 255 255 0;
+	   }
+	   description {
+		state:		"reward" 0.0;
+		inherit:	"default" 0.0;
+		color: 		255 255 255 0;
+	   }
+       }
+
+   }   /* parts-end */
+   
+
+
+
+   programs {
+
+      program {
+         name: 		"star-prg-01";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star01";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-01b";
+      }
+      
+      program {
+         name: 		"star-prg-01b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star01";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-01";
+      }
+      
+      program {
+         name: 		"star-prg-02";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star02";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-02b";
+      }
+      
+      program {
+         name: 		"star-prg-02b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star02";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-02";
+      }
+
+      program {
+         name: 		"star-prg-03";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star03";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-03b";
+      }
+      
+      program {
+         name: 		"star-prg-03b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star03";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-03";
+      }
+
+      program {
+         name: 		"star-prg-04";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star04";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-04b";
+      }
+      
+      program {
+         name: 		"star-prg-04b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star04";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-04";
+      }
+      program {
+         name: 		"star-prg-05";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star05";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-05b";
+      }
+      
+      program {
+         name: 		"star-prg-05b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star05";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-05";
+      }
+
+      program {
+         name: 		"star-prg-06";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star06";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-06b";
+      }
+      
+      program {
+         name: 		"star-prg-06b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star06";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-06";
+      }
+
+      program {
+         name: 		"star-prg-07";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star07";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-07b";
+      }
+      
+      program {
+         name: 		"star-prg-07b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star07";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-07";
+      }
+
+      program {
+         name: 		"star-prg-08";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star08";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-08b";
+      }
+      
+      program {
+         name: 		"star-prg-08b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star08";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-08";
+      }
+
+      program {
+         name: 		"star-prg-09";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star09";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-09b";
+      }
+      
+      program {
+         name: 		"star-prg-09b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star09";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-09";
+      }
+
+      program {
+         name: 		"star-prg-10";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star10";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-10b";
+      }
+      
+      program {
+         name: 		"star-prg-10b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star10";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-10";
+      }
+
+      program {
+         name: 		"star-prg-11";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star11";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-11b";
+      }
+      
+      program {
+         name: 		"star-prg-11b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star11";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-11";
+      }
+
+      program {
+         name: 		"star-prg-12";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star12";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-12b";
+      }
+      
+      program {
+         name: 		"star-prg-12b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star12";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-12";
+      }
+
+      program {
+         name: 		"star-prg-13";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star13";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-13b";
+      }
+      
+      program {
+         name: 		"star-prg-13b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star13";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-13";
+      }
+
+      program {
+         name: 		"star-prg-14";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star14";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-14b";
+      }
+      
+      program {
+         name: 		"star-prg-14b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star14";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-14";
+      }
+
+      program {
+         name: 		"star-prg-15";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star15";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-15b";
+      }
+      
+      program {
+         name: 		"star-prg-15b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star15";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-15";
+      }
+
+      program {
+         name: 		"star-prg-16";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star16";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-16b";
+      }
+      
+      program {
+         name: 		"star-prg-16b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star16";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-16";
+      }
+
+      program {
+         name: 		"star-prg-17";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star17";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-17b";
+      }
+      
+      program {
+         name: 		"star-prg-17b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star17";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-17";
+      }
+
+      program {
+         name: 		"star-prg-18";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star18";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-18b";
+      }
+      
+      program {
+         name: 		"star-prg-18b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star18";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-18";
+      }
+
+      program {
+         name: 		"star-prg-19";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star19";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-19b";
+      }
+      
+      program {
+         name: 		"star-prg-19b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star19";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-19";
+      }
+
+      program {
+         name: 		"star-prg-20";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star20";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-20b";
+      }
+      
+      program {
+         name: 		"star-prg-20b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star20";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-20";
+      }
+
+      program {
+         name: 		"star-prg-21";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star21";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-21b";
+      }
+      
+      program {
+         name: 		"star-prg-21b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star21";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-21";
+      }
+
+      program {
+         name: 		"star-prg-22";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star22";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-22b";
+      }
+      
+      program {
+         name: 		"star-prg-22b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star22";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-22";
+      }
+
+      program {
+         name: 		"star-prg-23";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star23";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-23b";
+      }
+      
+      program {
+         name: 		"star-prg-23b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star23";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-23";
+      }
+
+      program {
+         name: 		"star-prg-24";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star24";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-24b";
+      }
+      
+      program {
+         name: 		"star-prg-24b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star24";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-24";
+      }
+
+      program {
+         name: 		"star-prg-25";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star25";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-25b";
+      }
+      
+      program {
+         name: 		"star-prg-25b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star25";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-25";
+      }
+
+      program {
+         name: 		"star-prg-26";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star26";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-26b";
+      }
+      
+      program {
+         name: 		"star-prg-26b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star26";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-26";
+      }
+
+      program {
+         name: 		"star-prg-27";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star27";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-27b";
+      }
+      
+      program {
+         name: 		"star-prg-27b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star27";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-27";
+      }
+
+      program {
+         name: 		"star-prg-28";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star28";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-28b";
+      }
+      
+      program {
+         name: 		"star-prg-28b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star28";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-28";
+      }
+
+      program {
+         name: 		"star-prg-29";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star29";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-29b";
+      }
+      
+      program {
+         name: 		"star-prg-29b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star29";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-29";
+      }
+
+      program {
+         name: 		"star-prg-30";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star30";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-30b";
+      }
+      
+      program {
+         name: 		"star-prg-30b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star30";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-30";
+      }
+
+      program {
+         name: 		"star-prg-31";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"star31";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 in: 		TIME_MIN TIME_RAND;
+	 after: 	"star-prg-31b";
+      }
+      
+      program {
+         name: 		"star-prg-31b";
+	 signal: 	"";
+	 source:	"";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"star31";
+	 transition:	SINUSOIDAL TIME_TRANS;
+	 after: 	"star-prg-31";
+      }
+
+
+      /* Elive Logo */
+
+      program {
+         name: 		"elive-logo-show";
+	 source:	"elive-logo";
+	 signal: 	"mouse,in";
+	 action:	STATE_SET "show" 0.0;
+	 target:	"elive-logo";
+	 transition:	LINEAR 1.45;
+         after:         "text-show";
+         after:         "ref-show";
+         after:         "elive-shadow-show";
+
+	 }
+
+
+      program {
+         name: 		"elive-shadow-show";
+	 source:	"elive-shadow";
+	 signal: 	"";
+	 action:	STATE_SET "show" 0.0;
+	 target:	"elive-shadow";
+	 transition:	LINEAR 1;
+	 }
+
+      program {
+         name: 		"text-show";
+	 source:	"text_1";
+	 signal: 	"";
+	 action:	STATE_SET "lighted" 0.0;
+	 transition:	LINEAR 2.10;
+	 target:	"text_1";
+	 }
+
+      program {
+         name:          "ref-show";
+         source:        "elive-logo-refl";   
+         signal:        "";
+         action:        STATE_SET "default" 0.1;
+         transition:    LINEAR 2;               
+         target:        "elive-logo-refl";
+         after:         "ref-show";
+
+         }                       
+
+
+      program {
+         name: 		"elive-logo-unshow";
+	 source:	"elive-logo";
+	 signal: 	"mouse,out";
+	 action:	STATE_SET "default" 0.0;
+	 transition:	LINEAR 1;
+	 target:	"elive-logo";
+         after: 	"elive-shadow-unshow";
+         after:         "text-unshow";
+	 }
+
+      program {
+         name: 		"elive-shadow-unshow";
+	 source:	"elive-shadow";
+	 signal: 	"";
+	 action:	STATE_SET "default" 0.0;
+	 target:	"elive-shadow";
+	 transition:	LINEAR 1;
+	 }
+
+      program {
+         name: 		"text-unshow";
+	 source:	"text_1";
+	 signal: 	"";
+	 action:	STATE_SET "default" 0.0;
+	 transition:	LINEAR 2;
+	 target:	"text_1";
+         after:         "ref-unshow";
+	 }
+
+      program {
+         name:          "ref-unshow";
+         source:        "elive-logo-refl";   
+         signal:        "";
+         action:        STATE_SET "default" 0.0;
+         transition:    LINEAR 1;               
+         target:        "elive-logo-refl";
+         }                       
+
+      program {
+         name: 		"starflash-prg-1";
+	 signal: 	"show";
+	 source:	"";
+	 action: 	STATE_SET "lighted" 0.0;
+	 target:	"starflash1";
+	 transition:	DECELERATE 1.2;
+	 in: 		60 900;
+	 after:		"starflash-re";
+      	 }
+      program {
+         name: 		"starflash-re";
+	 action: 	STATE_SET "reward" 0.0;
+	 target:	"starflash1";
+	 after:		"starflash-re2";
+	 }
+      program {
+         name: 		"starflash-re2";
+	 action: 	STATE_SET "default" 0.0;
+	 target:	"starflash1";
+	 after:		"starflash-prg-1";
+	 }
+
+    } /* Close programs */
+  } /* Close Groups */
+

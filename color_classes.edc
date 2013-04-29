@@ -1,0 +1,113 @@
+color_classes {
+	color_class {
+		name: "Background";
+		color: 255 255 255 255;
+	}
+	color_class {
+		name: "Button";
+		color: 240 240 240 128;
+	}
+	color_class {
+		name: "focus";
+		color: 240 240 240 220;
+	}
+	color_class {
+		name: "List_odd";
+		color: 240 240 240 20;
+	}
+	color_class {
+		name: "List_even";
+		color: 255 255 255 20;
+	}
+	color_class {
+		name: "Widgets";
+		color: 255 255 255 255;
+	}
+	color_class {
+		name: "border_frame";
+		color: 240 240 240 255;
+	}
+	color_class {
+		name: "border_title";
+		color: 240 240 240 255;
+	}
+	color_class {
+		name: "border_title_active";
+		color: 255 255 255 255;
+	}
+	color_class {
+		name: "None";
+		color: 0 0 0 0;
+	}
+	color_class {
+		name: "Slight";
+		color: 0 0 0 20;
+	}
+	color_class {
+		name: "Quarter";
+		color: 0 0 0 64;
+	}
+	color_class {
+		name: "Semi";
+		color: 240 240 240 128;
+	}
+	color_class {
+		name: "3Quarters";
+		color: 0 0 0 192;
+	}
+	color_class {
+		name: "Black";
+		color: 0 0 0 255;
+	}
+	color_class {
+		name: "NoneW";
+		color: 255 255 255 0;
+	}
+	color_class {
+		name: "SlightW";
+		color: 255 255 255 20;
+	}
+	color_class {
+		name: "QuarterW";
+		color: 255 255 255 64;
+	}
+	color_class {
+		name: "SemiW";
+		color: 255 255 255 128;
+	}
+	color_class {
+		name: "3QuartersW";
+		color: 255 255 255 192;
+	}
+	color_class {
+		name: "White";
+		color: 255 255 255 255;
+	}
+	color_class {
+		name: "Grey";
+		color: 192 192 192 255;
+	}
+	color_class {
+		name: "Urgent";
+		color: 205 105 105 128;
+	}
+	color_class {
+		name: "Text";
+		color: 255 255 255 255;
+		color3: 220 220 220 0;
+	}
+	color_class {
+		name: "TextW";
+		color: 255 255 255 255;
+		color3: 0 0 0 64;
+	}
+	color_class {
+		name: "Mute";
+		color: 255 55 55 205;
+	}
+	color_class {
+		name: "Gadgets";
+		color: 255 255 255 255;
+		color3: 220 220 220 0;
+	}
+}

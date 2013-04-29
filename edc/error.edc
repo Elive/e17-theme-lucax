@@ -1,0 +1,249 @@
+images {
+   image: "e17_logo.png" COMP;
+   image: "button_sm.png" COMP;
+   image: "button_sm2.png" COMP;
+   image: "warn4.png" COMP;
+   image: "warn-br.png" COMP;
+}
+
+styles
+{
+   style {
+      name: "error_style";
+      base: "font=Normal font_size=11 align=left color=#fff style=soft_shadow shadow_color=#00000080 wrap=word";
+      
+      tag:  "br" "\n";
+      tag:  "hilight" "+ font=Bold style=glow color=#fff glow2_color=#fe87 glow_color=#fa14";
+   }
+}
+
+group {
+   name: "e/error/main";
+   min: 400 200;
+   max: 400 200;
+   parts {
+      part {
+	 name:          "base";
+	 mouse_events:  0;
+	 type:          RECT;
+	 description {
+	    state:    "default" 0.0;
+	    rel1 {
+	       relative: 0.0  1.0;
+	       offset:   0    0;
+	    }
+	    rel2 {
+	       relative: 1.0  1.0;
+	       offset:   -1   -1;
+	    }
+	    color: 48 48 48 255;
+	 }
+      }
+      part {
+	 name:          "base2";
+	 mouse_events:  0;
+	 description {
+	    state:    "default" 0.0;
+	    //max:      99999 48;
+	    //align:    0.5   0.0;
+	    rel1 {
+	       relative: 0.0  0.0;
+	       offset:   3    3;
+	    }
+	    rel2 {
+	       relative: 1.0  1.0;
+	       offset:   -4   -4;
+	    }
+	    image {
+	       normal: "warn4.png";
+	    }
+		color: COLOR_GREY64 255;
+            fill {
+               smooth: 0;
+	       size {
+		  relative: 0 0;
+		  offset:   40 40;
+	       }	       
+            }
+	 }
+      }
+      part {
+	 name:          "base3";
+	 mouse_events:  0;
+	 description {
+	    state:    "default" 0.0;
+	    rel1 {
+	       relative: 0.0  0.0;
+	       offset:   0    0;
+	    }
+	    rel2 {
+	       relative: 1.0  1.0;
+	       offset:   -1   -1;
+	    }
+	    image {
+	       normal: "warn-br.png";
+	       border: 3 3 3 3;
+	       middle: 0;
+	    }
+		color: COLOR_BLACK 255;
+	    fill {
+	       smooth: 0;
+	    }
+	 }
+      }
+      part {
+	 name:          "e";
+	 type:          IMAGE;
+	 mouse_events:  0;
+	 description {
+	    state:    "default" 0.0;
+	    rel1 {
+	       relative: 0.0  0.0;
+	       offset:   16   16;
+	    }
+	    rel2 {
+	       relative: 0.0  0.0;
+	       offset:   80   80;
+	    }
+	    image {
+	       normal: "e17_logo.png";
+	    }
+	 }
+      }
+      part {
+	 name:         "e.text.title";
+	 type:          TEXT;
+	 effect:        SOFT_SHADOW;
+	 mouse_events:  0;
+	 description {
+	    state:    "default" 0.0;
+	    rel1 {
+	       relative: 1.0  0.0;
+	       offset:   16   0;
+	       to:       "e";
+	    }
+	    rel2 {
+	       relative: 1.0  1.0;
+	       offset:   -17   -1;
+	       to_y:     "e";
+	    }
+	    color3:    0   0   0 128;
+	    color: 255 255 255 255;
+	    text {
+	       text:    "title";
+	       font:     "Bold";
+	       size:     14;
+	       min:      1 1;
+	       align:    0.0 0.5;
+	    }
+	 }
+      }
+      part {
+	 name:          "e.text.message";
+	 type:          TEXTBLOCK;
+	 mouse_events:  0;
+	 description {
+	    state:    "default" 0.0;
+	    rel1 {
+	       relative: 0.0  1.0;
+	       offset:   16   16;
+	       to_y:     "e";
+	    }
+	    rel2 {
+	       relative: 1.0  0.0;
+	       offset:   -17   -17;
+	       to_y:     "button_image";
+	    }
+	    text {
+	       style:    "error_style";
+	       min:      1 1;
+	       text:     "An Error<br>Goes Here.";
+	    }
+	 }
+      }
+      part {
+	 name:          "button_image";
+	 type:          IMAGE;
+	 mouse_events:  1;
+	 description {
+	    state:    "default" 0.0;
+            min:      64 32;
+            max:      64 32;
+	    rel1 {
+	       relative: 0.0  1.0;
+	       offset:   0    -49;
+	    }
+	    rel2 {
+	       relative: 1.0  1.0;
+	       offset:   -1   -17;
+	    }
+	    image {
+	       normal: "button_sm.png";
+	       border: 8 8 8 8;
+	    }
+	 }
+	 description {
+	    state:    "clicked" 0.0;
+            min:      64 32;
+            max:      64 32;
+	    rel1 {
+	       relative: 0.0  1.0;
+	       offset:   0    -49;
+	    }
+	    rel2 {
+	       relative: 1.0  1.0;
+	       offset:   -1   -17;
+	    }
+	    image {
+	       normal: "button_sm2.png";
+	       border: 8 8 8 8;
+	    }
+	 }
+      }
+      part {
+	 name:          "button_text";
+	 type:          TEXT;
+	 effect:        SOFT_SHADOW;
+	 mouse_events:  0;
+	 description {
+	    state:    "default" 0.0;
+	    rel1 {
+	       relative: 0.0  0.0;
+	       offset:   0    0;
+	       to:     "button_image";
+	    }
+	    rel2 {
+	       relative: 1.0  1.0;
+	       offset:   -1   -1;
+	       to:     "button_image";
+	    }
+	    color3:    0   0   0 128;
+	    color: 255 255 255 255;
+	    text {
+	       text:     "OK";
+	       font:     "Normal";
+	       size:     11;
+	       min:      0 0;
+	       align:    0.5 0.5;
+	    }
+	 }
+      }
+   }
+   programs {
+      program {
+	 name:   "button_click";
+	 signal: "mouse,down,1";
+	 source: "button_image";
+	 action: STATE_SET "clicked" 0.0;
+	 target: "button_image";
+      }
+      program {
+	 name:   "button_unclick";
+	 signal: "mouse,up,1";
+	 source: "button_image";
+	 action: STATE_SET "default" 0.0;
+	 target: "button_image";
+	 action: SIGNAL_EMIT "close" "";
+      }
+   }
+}

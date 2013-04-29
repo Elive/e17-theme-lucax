@@ -1,0 +1,194 @@
+
+/*************************************************************
+  lucax- for e17 final
+  by duvelr and updated / maintained by agust
+  License:GPL v2
+
+ *************************************************************/
+#ifdef E17_PROFILE
+# if E17_PROFILE == LOWRES_PDA
+#  define SM "sm_"
+# elif E17_PROFILE == MEDIUMRES_PDA
+#  define SM "sm_"
+# elif E17_PROFILE == HIRES_PDA
+#  define SM "sm_"
+# elif E17_PROFILE == SLOW_PC
+#  define SM "sm_"
+# elif E17_PROFILE == MEDIUM_PC
+#  define SM
+# elif E17_PROFILE == FAST_PC
+#  define SM
+# endif
+#else
+# define SM
+#endif
+
+
+#define COLOR_PURPLE_OFF 54 107 158
+#define COLOR_PURPLE_ON 87 176 255
+
+
+#define COLOR_GREY32 32 32 32
+#define COLOR_GREY48 48 48 48
+#define COLOR_GREY64 64 64 64
+#define COLOR_GREY80 80 80 80
+#define COLOR_GREY96 96 96 96
+#define COLOR_GREY128 128 128 128
+#define COLOR_GREY160 160 160 160
+#define COLOR_GREY192 192 192 192
+#define COLOR_GREY208 208 208 208
+#define COLOR_GREY225 225 225 225
+
+#define COLOR_BB_BG 48 48 48
+
+#define COLOR_BLACK 0 0 0
+#define COLOR_WHITE 255 255 255
+
+#define COLOR_RED 255 0 0
+#define COLOR_RED_LABEL 128 32 32
+
+#define COLOR_BLUE_LABEL 26 7 106
+
+
+images {
+
+  // MENU
+
+  image: "menu_focus.png" COMP;
+  image: "menu_focus_shadow1.png" COMP;
+  image: "menu_focus_glint1.png" COMP;
+  image: "menu_focus_glint2.png" COMP;
+  image: "menu_focus_glint3.png" COMP;
+  image: "menu_focus_outline.png" COMP;
+  
+  image: "e17_border1.png" COMP;
+  image: "e17_border1b.png" COMP;
+  image: "e17_border2.png" COMP;
+
+  image: "e17_border3.png" COMP;
+  image: "e17_border3b.png" COMP;
+  image: "e17_border4.png" COMP;
+
+
+  image: "e17_border5.png" COMP;
+  image: "e17_border5b.png" COMP;
+  image: "e17_border6.png" COMP;
+
+  image: "e17_border7.png" COMP;
+  image: "e17_border7b.png" COMP;
+  image: "e17_border8.png" COMP;
+
+  
+  image: "check_border.png"  COMP;
+  image: "check_grad.png"    COMP;
+  image: "check_check.png"   COMP;
+
+  image: "radio0.png"  COMP;
+  image: "radio1.png"    COMP;
+  image: "radio2.png"     COMP;
+
+
+  image: "box-center-bev.png" COMP;
+  image: "box-center-bev2.png" COMP;
+  image: "box-overlay.png" COMP;
+  image: "box-center-bev3.png" COMP;
+
+
+  image: "e17_titlebar_glint1.png" COMP;
+  image: "e17_titlebar_glint2.png" COMP;
+  image: "e17_titlebar_glint3.png" COMP;
+  image: "e17_titlebar_outline.png" COMP;
+
+  image: "e17_titlebar.png" COMP;
+  image: "e17_titlebar_shadow1.png" COMP;
+  image: "e17_titlebar_shadow2.png" COMP;
+
+}
+
+fonts {
+
+  font: "Vera.ttf"     "Edje Vera";
+  font: "Vera.ttf"     "Edje-Vera";
+  font: "VeraBd.ttf"   "Edje-Vera-Bold";
+  font: "04B.ttf" "04b08";
+
+}
+
+#if 0
+spectra {
+  spectrum {
+    name: "black_to_trans";
+    color: 0 0 0 255 1;
+    color: 0 0 0 0 1;
+  }
+}
+#endif
+
+#include "macros.edc"
+
+collections {
+#include "images.edc"
+#include "edc/backlight.edc"
+#include "color_classes.edc"
+#include "clock.edc"
+#include "clock_calendar.edc"
+#include "definitions.edc"
+#include "edc/icons2.edc"
+#include "edc/comp.edc"
+#include "edc/connman.edc"
+#include "edc/efm_navigation.edc"
+#include "edc/everything.edc"
+#include "edc/toolbar.edc"
+#include "edc/taskbar.edc"
+#include "edc/about.edc"
+#include "edc/border.edc"
+#include "edc/clock.edc"
+#include "edc/dialog.edc"
+#include "edc/menu.edc"
+#include "edc/pager.edc"
+#include "edc/pointer.edc"
+#include "edc/ibar.edc"
+#include "edc/bg.edc"
+#include "edc/fileman.edc"
+#include "edc/scrollframe.edc"
+#include "edc/filesel.edc"
+#include "edc/label.edc"
+#include "edc/move.edc"
+#include "edc/resize.edc"
+#include "edc/check.edc"
+#include "edc/calendar.edc"
+#include "edc/mem.edc"
+#include "edc/mixer.edc"
+#include "edc/net.edc"
+#include "edc/radio.edc"
+#include "edc/randr.edc"
+#include "edc/gadman.edc"
+#include "edc/button.edc"
+#include "edc/frame.edc"
+#include "edc/entry.edc"
+#include "edc/dialog_new.edc"
+#include "edc/glue.edc"
+#include "edc/ibox.edc"
+#include "edc/ibar_drop.edc"
+#include "edc/configure.edc"
+#include "edc/ilist.edc"
+#include "edc/init.edc"
+#include "edc/battery.edc"
+#include "edc/temperature.edc"
+#include "edc/error.edc"
+#include "edc/cpu.edc"
+#include "edc/cpufreq.edc"
+#include "edc/start.edc"
+#include "edc/winlist.edc"
+#include "edc/transitions.edc"
+#include "edc/icons.edc"
+#include "edc/slider.edc"
+#include "edc/shelf.edc"
+#include "edc/exebuf.edc"
+#include "edc/desklock.edc"
+#include "edc/sys.edc"
+#include "edc/syscon.edc"
+#include "edc/systray.edc"
+#include "edc/theme_about.edc"
+#include "edc/xkbswitch.edc"
+}

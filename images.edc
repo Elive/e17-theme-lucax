@@ -1,0 +1,112 @@
+images {
+
+// Generic
+image: "images/surface.png" COMP;
+image: "images/surface-light.png" COMP;
+image: "images/surface-circle.png" COMP;
+image: "images/focus.png" COMP;
+image: "images/blank.png" LOSSY 1;
+image: "images/logo_white_128.png" COMP;
+image: "images/other/icon_active.png" LOSSY 80;
+image: "images/other/pointer.png" COMP;
+   
+
+// text entry fields
+image: "images/other/e17_entry_cursor.png" COMP;
+
+// frame
+image: "e17_frame_label_under.png" COMP;
+image: "e17_frame_outline.png" COMP;
+
+// Fileman
+image: "images/buttons/e17_button_detail_open.png" COMP;
+image: "images/buttons/e17_button_detail_paste.png" COMP;
+image: "images/buttons/e17_button_detail_copy.png" COMP;
+image: "images/buttons/e17_button_detail_cut.png" COMP;
+image: "images/buttons/e17_button_detail_rename.png" COMP;
+image: "images/buttons/e17_button_detail_delete.png" COMP;
+image: "images/buttons/e17_button_detail_properties.png" COMP;
+image: "images/buttons/e17_button_detail_arrange_name.png" COMP;
+image: "images/buttons/e17_button_detail_arrange.png" COMP;
+image: "images/buttons/e17_button_detail_arrange_time.png" COMP;
+image: "images/buttons/e17_button_detail_new.png" COMP;
+image: "images/buttons/e17_button_detail_new_dir.png" COMP;
+image: "images/buttons/e17_button_detail_properties.png" COMP;
+image: "images/buttons/e17_button_detail_refresh.png" COMP;
+image: "images/buttons/e17_button_detail_view_details.png" COMP;
+image: "images/buttons/e17_button_detail_view_name.png" COMP;
+image: "images/buttons/e17_button_detail_view.png" COMP;
+image: "images/buttons/e17_button_detail_select.png" COMP;
+image: "images/buttons/e17_button_detail_close.png" COMP;
+image: "images/buttons/e17_button_detail_maximize.png" COMP;
+image: "images/buttons/e17_button_detail_minimize.png" COMP;
+image: "images/buttons/e17_button_detail_shade.png" COMP;
+image: "images/buttons/e17_button_detail_stick.png" COMP;
+image: "images/buttons/e17_button_detail_locks.png" COMP;
+image: "images/buttons/e17_button_detail_locks_user.png" COMP;
+image: "images/buttons/e17_button_detail_locks_application.png" COMP;
+image: "images/buttons/e17_button_detail_borderless.png" COMP;
+image: "images/buttons/e17_button_detail_remember.png" COMP;
+image: "images/buttons/e17_button_detail_skip_winlist.png" COMP;
+image: "images/buttons/e17_button_detail_fullscreen.png" COMP;
+image: "images/buttons/e17_button_detail_sendto.png" COMP;
+image: "images/buttons/e17_button_detail_kill.png" COMP;
+image: "images/buttons/e17_button_detail_stacking.png" COMP;
+image: "images/buttons/e17_button_detail_stack_below.png" COMP;
+image: "images/buttons/e17_button_detail_stack_normal.png" COMP;
+image: "images/buttons/e17_button_detail_stack_on_top.png" COMP;
+image: "images/buttons/e17_button_detail_properties.png" COMP;
+image: "images/buttons/e17_button_detail_skip.png" COMP;
+image: "images/buttons/e17_button_detail_skip_pager.png" COMP;
+image: "images/other/e17_fileman_thumb_bg.png" COMP;
+
+
+// efm_nav
+image: "images/efm_nav/e17_toolbar_nav_home.png" COMP;
+image: "images/efm_nav/e17_toolbar_nav_back.png" COMP;
+image: "images/efm_nav/e17_toolbar_nav_forward.png" COMP;
+image: "images/efm_nav/e17_toolbar_nav_up.png" COMP;
+image: "images/efm_nav/e17_toolbar_nav_refresh.png" COMP;
+image: "images/efm_nav/e17_toolbar_nav_favorites.png" COMP;
+image: "images/efm_nav/icon_efm_dnd_copy.png" COMP;
+image: "images/efm_nav/icon_efm_dnd_ask.png" COMP;
+image: "images/efm_nav/icon_efm_dnd_move.png" COMP;
+image: "images/efm_nav/icon_efm_vol_unmounted.png" COMP;
+image: "images/efm_nav/icon_efm_vol_mounted.png" COMP;
+
+// Syscon
+image: "base_bg.png" COMP;
+image: "bt_base1.png" COMP;
+image: "bt_base2.png" COMP;
+image: "bt_hilight.png" COMP;
+image: "bt_shine.png" COMP;
+image: "bt_glow.png" COMP;
+image: "bt_dis_base.png" COMP;
+image: "bt_dis_hilight.png" COMP;
+
+/*
+// everything
+image: "inset_sunk.png" COMP;
+image: "everything_box.png" COMP;
+image: "everything_item_bg.png" COMP;
+image: "vgrad_dark.png" COMP;
+image: "bt_dis_hilight.png" COMP;
+image: "bt_dis_shine.png" COMP;
+image: "bt_dis_base.png" COMP;
+image: "outline.png" COMP;
+image: "icon_left_arrow.png" COMP;
+image: "icon_right_arrow.png" COMP;
+image: "toolbar_sel.png" COMP;
+image: "icon_right_arrow.png" COMP;
+image: "bt_sm_base1.png" COMP;
+image: "bt_sm_base2.png" COMP;
+image: "bt_sm_shine.png" COMP;
+image: "bt_sm_hilight.png" COMP;
+image: "bt_sm_base1.png" COMP;
+image: "bt_sm_base2.png" COMP;
+image: "bt_sm_shine.png" COMP;
+image: "bt_sm_hilight.png" COMP;
+*/
+
+}
+

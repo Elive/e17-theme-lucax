@@ -1,0 +1,116 @@
+images {
+   image: "move_bg.png" COMP;
+   image: "e17_frame_label_under.png" COMP;
+   image: "e17_frame_label_over.png" COMP;
+}
+group {
+   name: "e/widgets/border/default/move";
+   parts {
+      part {
+	 name:          "base";
+	 mouse_events:  0;
+	 description {
+	    state:    "default" 0.0;
+		min: 128 30;
+		max: 99999 40;
+	    align:    0.5   0.5;
+	    rel1 {
+		//to:"e.text.label";
+		relative: 0  0;
+	       offset:   0    0;
+	    }
+	    rel2 {
+		//to:"e.text.label";
+	       relative: 1  1;
+	       offset:   -1   -1;
+	    }
+	    image {
+	       normal: "move_bg.png";
+		border: 2 2 2 2;
+	    }
+	 }
+      }
+      part {
+	 name:          "base2";
+	 mouse_events:  0;
+	 description {
+	    state:    "default" 0.0;
+		color: COLOR_BLUE_LABEL 255;
+	    rel1 {
+		to: "base3";
+	       relative: 0.0  0.0;
+	       offset:   0    0;
+	    }
+	    rel2 {
+		to: "base3";
+	       relative: 1.0  1.0;
+	       offset:   -1   -1;
+	    }
+	    image {
+	       normal: "e17_frame_label_under.png";
+		border:3 3 3 3;
+	    }
+	    fill {
+	       smooth: 0;
+	    }
+	 }
+      }
+      part {
+	 name:          "base3";
+	 mouse_events:  0;
+	 description {
+	    state:    "default" 0.0;
+	    align:    0.5   0.5;
+		min:72 20;
+		max:72 20;
+		color: COLOR_GREY128 255;
+	    rel1 {
+		to: "e.text.label";
+	       relative: 0.0  0.0;
+	       offset:   0    0;
+	    }
+	    rel2 {
+		to: "e.text.label";
+	       relative: 1.0  1.0;
+	       offset:   -1   -3;
+	    }
+	    image {
+	       normal: "e17_frame_label_over.png";
+	       border: 7 7 7 7;
+	   //    middle: 0;
+	    }
+	    fill {
+	       smooth: 0;
+	    }
+	 }
+      }
+      part {
+	 name: "e.text.label";
+	 type: TEXT;
+         effect: SOFT_SHADOW;
+	 description {
+	    state: "default" 0.0;
+	    rel1 {
+		to: "base";
+		 relative: 0 0;
+	       offset:   4   4;
+	    }
+	    rel2 {
+		to: "base";
+	       relative: 1 1;
+	       offset:   -5  -5;
+	    }
+            color: COLOR_WHITE 255;
+	    color3: COLOR_BLACK 32;
+	    text {
+	       text: "X  Y";
+	       font: "Normal";
+	       size: 11;
+	       align: 0.5 0.5;
+	       min: 1 1;
+	       text_class: "move_text";
+	    }
+	 }
+      }
+   }
+}

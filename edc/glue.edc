@@ -1,0 +1,33 @@
+group {
+  name: "e/widgets/glue/main";
+  parts {
+    part {
+      name: "main";
+      type: RECT;
+      description {
+        state: "default" 0.0;
+        color: 120 120 20 255;
+      }
+      description {
+        state: "pending" 0.0;
+        color: 120 0 0 255;
+      }
+    }
+  }
+  programs {
+    program {
+      name: "pending";
+      signal: "e,state,pending";
+      source: "*";
+      action: STATE_SET "pending" 0.0;
+      target: "main";
+    }
+    program {
+      name: "active";
+      signal: "e,state,active";
+      source: "*";
+      action: STATE_SET "default" 0.0 ;
+      target: "main";
+    }
+  }
+}
