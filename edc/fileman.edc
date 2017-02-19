@@ -9484,7 +9484,7 @@ FILEMAN_MIME("application/x-font-pcf","pcf");
 FILEMAN_MIME("application/x-font-bdf","bdf");
 FILEMAN_MIME("text/css","css");
 FILEMAN_MIME("text/html","html");
-FILEMAN_MIME("text/html","htm");
+/*FILEMAN_MIME("text/html","htm");*/
 FILEMAN_MIME("application/zip","zip");
 FILEMAN_MIME("application/x-gzip","gz");
 FILEMAN_MIME("application/x-bzip-compressed-tar","tar");

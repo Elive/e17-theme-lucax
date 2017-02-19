@@ -1,34 +1,34 @@
-group { 
-	name: "e/fileman/toolbar/default/base";
-	parts {
-		part { 
-			name: "base";
-//			type: RECT;
-			description { 
-				state: "default" 0.0;
-				SURFACE_LIGHT
-				color_class: "QuarterW";
-//				visible: 0;
-         }
-      }
-      part { 
-			name: "e.swallow.event"; type: SWALLOW;
-         description { 
-				state: "default" 0.0;
-            rel1.to: "e.swallow.content";
-            rel2.to: "e.swallow.content";
-         }
-      }
-      part { 
-			name: "e.swallow.content"; type: SWALLOW;
-         description { 
-				state: "default" 0.0;
-            //rel1.offset: 2 2;
-            //rel2.offset: -3 -3;
-         }
-      }
-	}
-}
+/*group { */
+	/*name: "e/fileman/toolbar/default/base";*/
+	/*parts {*/
+		/*part { */
+			/*name: "base";*/
+/*//			type: RECT;*/
+			/*description { */
+				/*state: "default" 0.0;*/
+				/*SURFACE_LIGHT*/
+				/*color_class: "QuarterW";*/
+/*//				visible: 0;*/
+         /*}*/
+      /*}*/
+      /*part { */
+			/*name: "e.swallow.event"; type: SWALLOW;*/
+         /*description { */
+				/*state: "default" 0.0;*/
+            /*rel1.to: "e.swallow.content";*/
+            /*rel2.to: "e.swallow.content";*/
+         /*}*/
+      /*}*/
+      /*part { */
+			/*name: "e.swallow.content"; type: SWALLOW;*/
+         /*description { */
+				/*state: "default" 0.0;*/
+            /*//rel1.offset: 2 2;*/
+            /*//rel2.offset: -3 -3;*/
+         /*}*/
+      /*}*/
+	/*}*/
+/*}*/
 
 
 group {
