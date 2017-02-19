@@ -622,7 +622,8 @@ group {
 
                 text {
                         text: "Item Label";
-                        font: "Edje Vera";
+                        font: "04b08";
+			 //font: "Edje Vera";
                         size: 10;
                         min: 1 1;
                         align: 0.0 0.0;

@@ -1,7 +1,7 @@
 
 /*************************************************************
-  lucax- for e17 final
-  by duvelr and updated / maintained by agust
+  lucax-beta-02  for e17
+  by duvelr
   License:GPL v2
 
  *************************************************************/
@@ -114,32 +114,8 @@ fonts {
 
 }
 
-#if 0
-spectra {
-  spectrum {
-    name: "black_to_trans";
-    color: 0 0 0 255 1;
-    color: 0 0 0 0 1;
-  }
-}
-#endif
-
-#include "macros.edc"
-
 collections {
-#include "images.edc"
-#include "edc/backlight.edc"
-#include "color_classes.edc"
-#include "clock.edc"
-#include "clock_calendar.edc"
-#include "definitions.edc"
-#include "edc/icons2.edc"
-#include "edc/comp.edc"
-#include "edc/connman.edc"
-#include "edc/efm_navigation.edc"
-#include "edc/everything.edc"
-#include "edc/toolbar.edc"
-#include "edc/taskbar.edc"
+
 #include "edc/about.edc"
 #include "edc/border.edc"
 #include "edc/clock.edc"
@@ -156,12 +132,7 @@ collections {
 #include "edc/move.edc"
 #include "edc/resize.edc"
 #include "edc/check.edc"
-#include "edc/calendar.edc"
-#include "edc/mem.edc"
-#include "edc/mixer.edc"
-#include "edc/net.edc"
 #include "edc/radio.edc"
-#include "edc/randr.edc"
 #include "edc/gadman.edc"
 #include "edc/button.edc"
 #include "edc/frame.edc"
@@ -172,11 +143,9 @@ collections {
 #include "edc/ibar_drop.edc"
 #include "edc/configure.edc"
 #include "edc/ilist.edc"
-#include "edc/init.edc"
 #include "edc/battery.edc"
 #include "edc/temperature.edc"
 #include "edc/error.edc"
-#include "edc/cpu.edc"
 #include "edc/cpufreq.edc"
 #include "edc/start.edc"
 #include "edc/winlist.edc"
@@ -184,11 +153,8 @@ collections {
 #include "edc/icons.edc"
 #include "edc/slider.edc"
 #include "edc/shelf.edc"
-#include "edc/exebuf.edc"
+#include "edc/execbuf.edc"
 #include "edc/desklock.edc"
 #include "edc/sys.edc"
-#include "edc/syscon.edc"
-#include "edc/systray.edc"
-#include "edc/theme_about.edc"
-#include "edc/xkbswitch.edc"
+#include "edc/e17_about.edc"
 }
