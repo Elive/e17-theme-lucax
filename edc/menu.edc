@@ -593,7 +593,7 @@ group { name: "e/widgets/menu/default/label";
                text: "Item Label";
                /*font: "04b08";*/  // not sure why this font was set there like this but looks very strange, like broken
                font: "Edje Vera";
-               size: 10;
+               size: 12;
                min: 1 1;
                align: 0.0 0.0;
             }
